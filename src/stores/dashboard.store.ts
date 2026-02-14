@@ -11,7 +11,7 @@ interface DashboardState {
 
     setFilters: (filters: Partial<DashboardFilters>) => void;
     setTimeRange: (timeRange: TimeRange) => void;
-    setMetrics: () => Promise<void>;
+    fetchMetrics: () => Promise<void>;
     fetchChartData: (timeRange: TimeRange) => Promise<void>;
     resetError: () => void;
 }
