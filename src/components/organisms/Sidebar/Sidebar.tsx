@@ -131,12 +131,71 @@ export const Siderbar: React.FC<SidebarProps> = ({
                                             'h-5 w-5 shrink-0',
                                             isActive ? 'text-primary-600' : 'text-gray-400'
                                         )} />
+
+                                        {!isCollapsed && (
+                                            <>
+                                                <Typography
+                                                    variant='body'
+                                                    weight='medium'
+                                                    className={cn(
+                                                        'ml-3 transition-opacity duration-200',
+                                                        isCollapsed ? 'opacity-0 w-0' : 'opacity-100'
+                                                    )}
+                                                >
+                                                    {item.label}
+                                                </Typography>
+
+                                                {item.badge && (
+                                                    <span className={cn(
+                                                        'ml-auto inline-flex items-center px-2 py-1 rounded-full text-xs font-medium',
+                                                        isActive
+                                                            ? 'bg-primary-100 text-primary-800'
+                                                            : 'bg-gray-100 text-gray-800'
+                                                    )}>
+                                                        {item.badge}
+                                                    </span>
+                                                )}
+                                            </>
+                                        )}
                                     </button>
                                 </li>
                             )
                         })}
                     </ul>
                 </nav>
+
+                {/* Footer del Sidebar */}
+                {!isCollapsed && (
+                    <div className='absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100'>
+                        <div className='flex items-center space-x-3'>
+                            <div className='w-8 h-8 bg-linear-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center'>
+                                <Typography
+                                    variant='body'
+                                    weight='bold'
+                                    className='text-white text-sm'
+                                >
+                                    JD
+                                </Typography>
+                            </div>
+                            <div className='flex-1 min-w-0'>
+                                <Typography
+                                    variant='body'
+                                    weight='medium'
+                                    className='truncate'
+                                >
+                                    Juan Diaz
+                                </Typography>
+                                <Typography
+                                    variant='caption'
+                                    color='muted'
+                                    className='truncate'
+                                >
+                                    Administrador
+                                </Typography>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </Card>
     )
