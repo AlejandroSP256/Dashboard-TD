@@ -11,6 +11,7 @@ export interface ChartContainerProps {
     isLoading?: boolean;
     error?: string | null;
     height?: number;
+    style?: React.CSSProperties;
 }
 
 export const ChartContainer: React.FC<ChartContainerProps> = ({
@@ -19,11 +20,12 @@ export const ChartContainer: React.FC<ChartContainerProps> = ({
     className,
     isLoading = false,
     error = null,
-    height = 400
+    height = 400,
+    style
 }) => {
     if (error) {
         return (
-            <Card className={className}>
+            <Card className={className} style={style}>
                 <CardContent className='p-6'>
                     <div className='text-center text-red-600'>
                         <Typography variant='h4' color='error'>

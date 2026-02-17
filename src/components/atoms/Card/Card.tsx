@@ -8,6 +8,7 @@ export interface CardProps {
     shadow?: 'none' | 'sm' | 'md' | 'lg';
     border?: boolean;
     hover?: boolean;
+    style?: React.CSSProperties;
 }
 
 export const Card: React.FC<CardProps> =({
@@ -16,7 +17,8 @@ export const Card: React.FC<CardProps> =({
     padding = 'md',
     shadow = 'sm'  ,
     border = true,
-    hover = false
+    hover = false,
+    style
 }) => {
     const paddingStyles = {
         none: 'p-0',
@@ -42,6 +44,7 @@ export const Card: React.FC<CardProps> =({
                 hover && 'hover:shadow-md hover:border-gray-300 cursor-pointer',
                 className
             )}
+            style={style}
         >
             {children}
         </div>

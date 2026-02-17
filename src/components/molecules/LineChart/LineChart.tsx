@@ -19,6 +19,7 @@ export interface LineChartProps {
     error?: string | null;
     className?: string;
     height?: number;
+    style?: React.CSSProperties;
 }
 
 export const LineChart: React.FC<LineChartProps> = ({
@@ -27,7 +28,8 @@ export const LineChart: React.FC<LineChartProps> = ({
     isLoading = false,
     error = null,
     className,
-    height = 400
+    height = 400,
+    style
 }) => {
     const { getDefaultOptions, colorPalette } = useChartConfig()
 
@@ -63,6 +65,7 @@ export const LineChart: React.FC<LineChartProps> = ({
             error={error}
             className={className}
             height={height}
+            style={style}
         >
             <Line data={chartData} options={options} />
         </ChartContainer>

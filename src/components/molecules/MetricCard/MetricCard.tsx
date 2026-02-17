@@ -12,6 +12,7 @@ export interface MetricCardProps {
     formatOptions?: Intl.NumberFormatOptions;
     isLoading?: boolean;
     className?: string;
+    style?: React.CSSProperties;
 }
 
 export const MetricCard: React.FC<MetricCardProps> = ({
@@ -21,7 +22,8 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     unit,
     formatOptions,
     isLoading = false,
-    className
+    className,
+    style
 }) => {
     const calculateChange = (current: number, previous: number): number => {
         if (previous === 0) return 0;
@@ -56,7 +58,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     }
 
     return (
-        <Card className={cn('hover:shadow-md transition-shadow', className)}>
+        <Card className={cn('hover:shadow-md transition-shadow', className)} style={style}>
             <CardContent className='p-4'>
                 <Typography variant='label' color='muted' className='mb-1'>
                     {title}
